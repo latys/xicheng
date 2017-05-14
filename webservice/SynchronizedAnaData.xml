@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://127.0.0.1:8080/xcwlwWebService/services/SynchronizedAnaData" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://127.0.0.1:8080/xcwlwWebService/services/SynchronizedAnaData" xmlns:intf="http://127.0.0.1:8080/xcwlwWebService/services/SynchronizedAnaData" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+
+   <message name="synchronizedAnaDataResponse">
+
+      <part name="synchronizedAnaDataReturn" type="xsd:boolean"/>
+
+   </message>
+
+   <message name="synchronizedAnaDataRequest">
+
+      <part name="gateId" type="soapenc:string"/>
+
+      <part name="equipId" type="soapenc:string"/>
+
+      <part name="data" type="soapenc:string"/>
+
+      <part name="equipIp" type="soapenc:string"/>
+
+      <part name="equipDk" type="soapenc:string"/>
+
+   </message>
+
+   <portType name="SynchronizedAnaData">
+
+      <operation name="synchronizedAnaData" parameterOrder="gateId equipId data equipIp equipDk">
+
+         <input message="impl:synchronizedAnaDataRequest" name="synchronizedAnaDataRequest"/>
+
+         <output message="impl:synchronizedAnaDataResponse" name="synchronizedAnaDataResponse"/>
+
+      </operation>
+
+   </portType>
+
+   <binding name="SynchronizedAnaDataSoapBinding" type="impl:SynchronizedAnaData">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <operation name="synchronizedAnaData">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <input name="synchronizedAnaDataRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bjxch.synch.com" use="encoded"/>
+
+         </input>
+
+         <output name="synchronizedAnaDataResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://127.0.0.1:8080/xcwlwWebService/services/SynchronizedAnaData" use="encoded"/>
+
+         </output>
+
+      </operation>
+
+   </binding>
+
+   <service name="SynchronizedAnaDataService">
+
+      <port binding="impl:SynchronizedAnaDataSoapBinding" name="SynchronizedAnaData">
+
+         <wsdlsoap:address location="http://127.0.0.1:8080/xcwlwWebService/services/SynchronizedAnaData"/>
+
+      </port>
+
+   </service>
+
+</definitions>
